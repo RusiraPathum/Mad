@@ -14,7 +14,7 @@ import java.util.List;
 public class DbHandler extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
-    private static final String DB_NAME = "hostal_db";
+    private static final String DB_NAME = "hostal.db";
     private static final String TABLE_NAME = "hostal_db";
 
     private static final String ID = "id";
@@ -27,6 +27,19 @@ public class DbHandler extends SQLiteOpenHelper {
     private static final String PRICE = "price";
     private static final String STARTED = "started";
     private static final String FINISHED = "finished";
+
+
+    ///////////////////////////////BOARDING////////////////////////////////////////
+    private static final String table_name = "boarding";
+
+    private static final String id = "id";
+    private static final String ownerName = "ownerName";
+    private static final String phone = "phone";
+    private static final String email = "email";
+    private static final String location = "location";
+    private static final String address = "address";
+    private static final String details = "details2";
+    private static final String price = "price";
 
 
     public DbHandler(@Nullable Context context) {
@@ -52,6 +65,20 @@ public class DbHandler extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(TABLE_CREATE_QUERY);
 
+        String CREATE_TABLE_BOARDING = "CREATE TABLE " + table_name +""+
+                "("
+                +id+" INTEGER PRIMARY KEY AUTOINCREMENT,"
+                +ownerName + " TEXT,"
+                +phone + " INTEGER,"
+                +price + " INTEGER, "
+                +location + " TEXT,"
+                +details + " TEXT,"
+                +address + " TEXT,"
+                +email + " TEXT" +
+                ");";
+
+        sqLiteDatabase.execSQL(CREATE_TABLE_BOARDING);
+
     }
 
     @Override
@@ -60,6 +87,10 @@ public class DbHandler extends SQLiteOpenHelper {
         String DROP_TABLE_QUERY = "DROP TABLE IF EXISTS "+ TABLE_NAME;
 
         sqLiteDatabase.execSQL(DROP_TABLE_QUERY);
+
+        String DROP_TABLE_BOARDING = "DROP TABLE IF EXISTS "+ table_name;
+
+        sqLiteDatabase.execSQL(DROP_TABLE_BOARDING);
 
         onCreate(sqLiteDatabase);
 
@@ -131,5 +162,34 @@ public class DbHandler extends SQLiteOpenHelper {
         sqLiteDatabase.delete(TABLE_NAME,"id =?",new String[]{String.valueOf(id)});
         sqLiteDatabase.close();
     }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    //////////////////Boarding//////////////////
+
+    public void getDetailsBoarding(Boarding boarding){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(ownerName,boarding.getOwnerName());
+        contentValues.put(phone,boarding.getPhone());
+        contentValues.put(price,boarding.getPrice());
+        contentValues.put(location,boarding.getLocation());
+        contentValues.put(address,boarding.getAddress());
+        contentValues.put(email,boarding.getEmail());
+        contentValues.put(details,boarding.getDetails2());
+
+        //save to table
+        sqLiteDatabase.insert(table_name,null,contentValues);
+        sqLiteDatabase.close();
+    }
+
+
+
+
+
+
 
 }

@@ -44,6 +44,12 @@ public class User_loginActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
 
+                else if(email1.getText().toString().equals("admin@gmail.com") && password1.getText().toString().equals("admin")){
+                    Toast.makeText(getApplicationContext(), "Admin Login", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(User_loginActivity.this,Admin_panalActivity.class);
+                    startActivity(intent);
+                }
 
 
                 else

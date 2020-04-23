@@ -2,6 +2,7 @@ package com.example.boadme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -55,6 +56,9 @@ public class User_registerActivity extends AppCompatActivity {
                         }
                     }
                     Toast.makeText(getApplicationContext(), "Password do not match", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(User_registerActivity.this,User_loginActivity.class);
+                    startActivity(intent);
                 }
             }
         });

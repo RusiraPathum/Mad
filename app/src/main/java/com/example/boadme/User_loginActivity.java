@@ -37,10 +37,18 @@ public class User_loginActivity extends AppCompatActivity {
 
                 Boolean chkemailpassword = dbHandel.emaillpassword(login_email,login_password);
 
-                if (chkemailpassword == true)
+                if (chkemailpassword == true){
                     Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(User_loginActivity.this,HomepageActivity.class);
+                    startActivity(intent);
+                }
+
+
+
                 else
                     Toast.makeText(getApplicationContext(), "Wrong Email or Password", Toast.LENGTH_SHORT).show();
+
             }
         });
 

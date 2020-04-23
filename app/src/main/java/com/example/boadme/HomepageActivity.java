@@ -31,7 +31,7 @@ public class HomepageActivity extends AppCompatActivity {
         boarding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomepageActivity.this,User_loginActivity.class);
+                Intent intent = new Intent(HomepageActivity.this,Boardinglist_homepageActivity.class);
                 startActivity(intent);
             }
         });
@@ -39,7 +39,7 @@ public class HomepageActivity extends AppCompatActivity {
         hostal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomepageActivity.this,Addhostal.class);
+                Intent intent = new Intent(HomepageActivity.this,Hostallist_homepageActivity.class);
                 startActivity(intent);
             }
         });

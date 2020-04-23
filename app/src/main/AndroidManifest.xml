@@ -9,9 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomepageActivity">
-
-        </activity>
+        <activity android:name=".Admin_panalActivity"></activity>
+        <activity android:name=".HomepageActivity"></activity>
         <activity android:name=".User_registerActivity" />
         <activity android:name=".User_loginActivity">
             <intent-filter>
@@ -20,9 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Hostal_listviewActivity">
-
-        </activity>
+        <activity android:name=".Hostal_listviewActivity"></activity>
         <activity android:name=".Edit_hostalActivity" />
         <activity android:name=".Addhostal" />
         <activity android:name=".MainActivity" />

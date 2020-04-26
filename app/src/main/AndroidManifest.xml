@@ -9,6 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".displayDetailsB" />
+        <activity android:name=".updateB" />
+        <activity android:name=".UserListB" />
+        <activity android:name=".getDetails">
+
         <activity android:name=".Boardinglist_homepageActivity">
 
         </activity>
@@ -21,6 +27,7 @@
         </activity>
         <activity android:name=".User_registerActivity" />
         <activity android:name=".User_loginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -120,4 +120,27 @@
     <string name="bookNow">BookNow</string>
     <string name="display">Display The Details</string>
     <string name="book_now">Book Now</string>
+
+    <string name="pageindx">Feedback</string>
+    <string name="txtname">Name :</string>
+    <string name="edtname" />
+    <string name="txtemail">Email :</string>
+    <string name="edtemail" />
+    <string name="txtcomment">Comment :</string>
+    <string name="edtcomment" />
+    <string name="btnsend">Send</string>
+    <string name="Updt_pge_fd">Update Feedbacks</string>
+    <string name="txtupdtname">Name :</string>
+    <string name="edtupdtname" />
+    <string name="editupdtemail" />
+    <string name="txtupdtemail">Email :</string>
+    <string name="edtupdtemail" />
+    <string name="txtupdtcomment">Comment :</string>
+    <string name="edtupdtcomment" />
+    <string name="btnupdate">update</string>
+    <string name="fdlist">Available X Feedback in List</string>
+    <string name="addfeedback">Add</string>
+    <string name="btnfdpage">Leave Us your Feedback</string>
+    <string name="btnrate">Rate Us</string>
+
 </resources>

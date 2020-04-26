@@ -36,6 +36,21 @@ public class Admin_panalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        
+        add_boarding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin_panalActivity.this,getDetails.class);
+                startActivity(intent);
+        });
+            
+        boarding_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin_panalActivity.this,displayDetailsB.class);
+                startActivity(intent);
+            }
+        }); 
 
         add_hostal.setOnClickListener(new View.OnClickListener() {
             @Override

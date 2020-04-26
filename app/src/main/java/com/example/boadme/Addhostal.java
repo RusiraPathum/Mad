@@ -52,7 +52,7 @@ public class Addhostal extends AppCompatActivity {
                 Hostal hostal = new Hostal(ownername,hostallocation,phonenum,email,address,numofrm,price,started,0);
                 dbHandler.add_Hostal(hostal);
 
-                startActivity(new Intent(context,Hostal_listviewActivity.class));
+                startActivity(new Intent(context,HomepageActivity.class));
 
             }
         });

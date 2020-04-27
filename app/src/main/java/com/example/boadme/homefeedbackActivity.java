@@ -14,6 +14,18 @@ public class homefeedbackActivity extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_homefeedback);
         Button send = findViewById (R.id.fdbutton);
+        Button closefd = findViewById (R.id.buttonclosefdhomepage);
+       closefd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(homefeedbackActivity.this, Addfeedback.class);
+
+
+                startActivity(intent);
+
+            }
+        });
+        Button sendRATE = findViewById (R.id.RATE);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -24,6 +36,17 @@ public class homefeedbackActivity extends AppCompatActivity {
 
             }
         });
+        sendRATE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(homefeedbackActivity.this, AddRate.class);
+
+
+                startActivity(intent);
+
+            }
+        });
+
 
     }
 }

@@ -44,7 +44,9 @@
         <activity android:name=".Edit_feedbackActivity" />
         <activity android:name=".Addfeedback">
 
+
         </activity>
+        <activity android:name=".AddRate" />
     </application>
 
 </manifest>

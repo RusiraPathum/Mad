@@ -41,6 +41,16 @@ public class Feedback_listviewActivity extends AppCompatActivity {
         feedbackList = new ArrayList<>();
         feedbackList = dbHandler.getAllFeedback ();
 
+        Button  closefeedbacklist= findViewById(R.id.buttonclosefeedbacklist);
+        closefeedbacklist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Feedback_listviewActivity.this,homefeedbackActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         FeedbackAdapter feedbackAdapter = new FeedbackAdapter (context,R.layout.feedbacklayout,feedbackList);
 
         listview.setAdapter(feedbackAdapter);

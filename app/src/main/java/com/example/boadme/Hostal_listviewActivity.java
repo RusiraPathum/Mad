@@ -20,7 +20,7 @@ import java.util.List;
 
 public class Hostal_listviewActivity extends AppCompatActivity {
 
-    private Button add;
+    private Button add,closefeedbacklist;
     private ListView listview;
     private TextView count;
     Context context;

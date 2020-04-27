@@ -27,7 +27,22 @@ public class Edit_feedbackActivity extends AppCompatActivity {
         customer_email = findViewById(R.id.edit_edit_email);
         customer_comment = findViewById(R.id.edit_edit_comment);
 
+        Button closeupdate = findViewById (R.id.buttoncloseupdate);
+        closeupdate.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View arg0) {
+                //Getting the rating and displaying it on the toast
+
+                Intent intent = new Intent(Edit_feedbackActivity.this, Feedback_listviewActivity.class);
+
+
+
+                startActivity(intent);
+
+            }
+
+        });
         Button btnupdate = findViewById (R.id.btnupdate);
 
         final String id = getIntent().getStringExtra("id");

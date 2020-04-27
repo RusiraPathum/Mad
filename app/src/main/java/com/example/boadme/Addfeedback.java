@@ -27,6 +27,22 @@ public class Addfeedback extends AppCompatActivity {
         editcomment = findViewById(R.id. editcomment);
 
         Button send = findViewById (R.id.sending);
+        Button closefeedback = findViewById (R.id.buttonclosefeedback);
+        closefeedback.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View arg0) {
+                //Getting the rating and displaying it on the toast
+
+                Intent intent = new Intent(Addfeedback.this, homefeedbackActivity.class);
+
+
+
+                startActivity(intent);
+
+            }
+
+        });
 
         Context context = this;
         dbHandler = new DbHandler(context);

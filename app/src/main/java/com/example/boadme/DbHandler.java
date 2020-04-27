@@ -65,7 +65,7 @@ public class DbHandler extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(TABLE_CREATE_QUERY);
 
-        String CREATE_TABLE_BOARDING = "CREATE TABLE " + table_name +""+
+        String CREATE_TABLE_BOARDING = "CREATE TABLE " +table_name+" " +
                 "("
                 +id+" INTEGER PRIMARY KEY AUTOINCREMENT,"
                 +ownerName + " TEXT,"
@@ -183,6 +183,33 @@ public class DbHandler extends SQLiteOpenHelper {
 
         //save to table
         sqLiteDatabase.insert(table_name,null,contentValues);
+        sqLiteDatabase.close();
+    }
+
+    public List <Boarding> displayDetailsB(){
+        List<Boarding> boardings = new ArrayList();
+        SQLiteDatabase database = getReadableDatabase();
+        String query = "SELECT * FROM " + table_name;
+
+        Cursor cursor = database.rawQuery(query,null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Boarding boarding = new Boarding();
+                boarding.setLocation(cursor.getString(4));
+                boarding.setPrice(cursor.getString(3));
+                boarding.setDetails2(cursor.getString(5));
+
+                boardings.add(boarding);
+            }while (cursor.moveToNext());
+        }
+        return boardings;
+    }
+
+    public void deleteBoarding(int id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        sqLiteDatabase.delete(table_name,"id =?",new String[]{String.valueOf(id)});
         sqLiteDatabase.close();
     }
 

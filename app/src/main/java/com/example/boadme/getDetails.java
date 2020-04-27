@@ -3,6 +3,7 @@ package com.example.boadme;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
@@ -48,6 +49,7 @@ public class getDetails extends AppCompatActivity {
                 Boarding boarding = new Boarding(OwnerName,Phone,Price,Location,Details2,Address,Email);
                 dbHandler.getDetailsBoarding(boarding);
 
+                startActivity(new Intent(context,BoardingHome.class));
 
             }
         });

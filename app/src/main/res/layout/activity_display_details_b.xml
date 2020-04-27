@@ -68,13 +68,13 @@
             android:text="@string/phoneB"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/tel2"
+            app:layout_constraintEnd_toStartOf="@+id/phone"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ownerName" />
 
         <EditText
-            android:id="@+id/tel2"
+            android:id="@+id/phone"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -97,13 +97,13 @@
             android:text="@string/mailB"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/email2"
+            app:layout_constraintEnd_toStartOf="@+id/email"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tel1" />
 
         <EditText
-            android:id="@+id/email2"
+            android:id="@+id/email"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -114,7 +114,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.919"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tel2" />
+            app:layout_constraintTop_toBottomOf="@+id/phone" />
 
         <TextView
             android:id="@+id/location1"
@@ -126,13 +126,13 @@
             android:text="@string/locationB"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/location2"
+            app:layout_constraintEnd_toStartOf="@+id/location"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/email1" />
 
         <EditText
-            android:id="@+id/location2"
+            android:id="@+id/location"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -142,7 +142,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.919"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email2" />
+            app:layout_constraintTop_toBottomOf="@+id/email" />
 
         <TextView
             android:id="@+id/address1"
@@ -154,13 +154,13 @@
             android:text="@string/address"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/address2"
+            app:layout_constraintEnd_toStartOf="@+id/address"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/location1" />
 
         <EditText
-            android:id="@+id/address2"
+            android:id="@+id/address"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -170,10 +170,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.919"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/location2" />
+            app:layout_constraintTop_toBottomOf="@+id/location" />
 
         <TextView
-            android:id="@+id/details"
+            android:id="@+id/details2"
             android:layout_width="177dp"
             android:layout_height="33dp"
             android:layout_marginStart="10dp"
@@ -182,13 +182,13 @@
             android:text="@string/detailsB"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/detail2"
+            app:layout_constraintEnd_toStartOf="@+id/details2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/type" />
 
         <EditText
-            android:id="@+id/detail2"
+            android:id="@+id/details2"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -212,13 +212,13 @@
             android:text="@string/price"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/price2"
+            app:layout_constraintEnd_toStartOf="@+id/price"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/details" />
+            app:layout_constraintTop_toBottomOf="@+id/details2" />
 
         <EditText
-            android:id="@+id/price2"
+            android:id="@+id/price"
             android:layout_width="260dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -228,7 +228,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.919"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail2" />
+            app:layout_constraintTop_toBottomOf="@+id/details2" />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier2"
@@ -237,7 +237,7 @@
             app:barrierDirection="left" />
 
         <Button
-            android:id="@+id/bookNow"
+            android:id="@+id/update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="150dp"

@@ -27,7 +27,7 @@ public class AddRate extends AppCompatActivity {
         ratingbar= findViewById(R.id.ratingBar2);
         button= findViewById(R.id.buttonSUBMIT);
         buttonclose= findViewById(R.id.closeratebtn);
-        Context context = this;
+
 
         //Performing action on Button Click
         button.setOnClickListener(new View.OnClickListener(){

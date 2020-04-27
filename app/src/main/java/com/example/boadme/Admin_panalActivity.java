@@ -75,6 +75,20 @@ public class Admin_panalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //feedback panal
+        add_feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin_panalActivity.this,Addfeedback.class);
+                startActivity(intent);
+            }
+        });
+        feedback_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin_panalActivity.this,Feedback_listviewActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

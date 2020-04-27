@@ -13,7 +13,7 @@
         <activity android:name=".displayDetailsB" />
         <activity android:name=".updateB" />
         <activity android:name=".UserListB" />
-        <activity android:name=".getDetails">
+        <activity android:name=".getDetails"/>
 
         <activity android:name=".Boardinglist_homepageActivity">
 
@@ -28,16 +28,25 @@
         <activity android:name=".User_registerActivity" />
         <activity android:name=".User_loginActivity">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Hostal_listviewActivity" />
         <activity android:name=".Edit_hostalActivity" />
         <activity android:name=".Addhostal" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".Feedback_listviewActivity" />
+        <activity android:name=".homefeedbackActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter></activity>
+        <activity android:name=".Edit_feedbackActivity" />
+        <activity android:name=".Addfeedback">
+
+
+        </activity>
+        <activity android:name=".AddRate" />
     </application>
 
 </manifest>

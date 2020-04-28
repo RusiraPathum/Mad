@@ -27,8 +27,11 @@
         </activity>
         <activity android:name=".User_registerActivity" />
         <activity android:name=".User_loginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter></activity>
         </activity>
         <activity android:name=".Hostal_listviewActivity" />
         <activity android:name=".Edit_hostalActivity" />
@@ -36,11 +39,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Feedback_listviewActivity" />
         <activity android:name=".homefeedbackActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
+            
         <activity android:name=".Edit_feedbackActivity" />
         <activity android:name=".Addfeedback">
 

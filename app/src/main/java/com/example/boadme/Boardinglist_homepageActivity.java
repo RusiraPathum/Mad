@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class Boardinglist_homepageActivity extends AppCompatActivity {
 
-    Button add_boarding;
+    Button add_boarding, btn_feedback;
     TextView login;
 
     @Override
@@ -20,6 +20,7 @@ public class Boardinglist_homepageActivity extends AppCompatActivity {
 
         add_boarding = findViewById(R.id.add_boarding);
         login = findViewById(R.id.login_text);
+        btn_feedback = findViewById(R.id.feedback_btn);
 
         add_boarding.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +34,14 @@ public class Boardinglist_homepageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Boardinglist_homepageActivity.this,User_loginActivity.class);
+                startActivity(intent);
+            }
+        });
+        
+        btn_feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Boardinglist_homepageActivity.this,Addfeedback.class);
                 startActivity(intent);
             }
         });

@@ -42,15 +42,16 @@ public class Admin_panalActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Admin_panalActivity.this,getDetails.class);
                 startActivity(intent);
+            }
         });
-            
+
         boarding_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Admin_panalActivity.this,displayDetailsB.class);
                 startActivity(intent);
             }
-        }); 
+        });
 
         add_hostal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,14 +69,6 @@ public class Admin_panalActivity extends AppCompatActivity {
             }
         });
 
-        backtohome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Admin_panalActivity.this,HomepageActivity.class);
-                startActivity(intent);
-            }
-        });
-        //feedback panal
         add_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,10 +76,43 @@ public class Admin_panalActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
         feedback_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Admin_panalActivity.this,Feedback_listviewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        add_booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin_panalActivity.this,User_loginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        booking_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin_panalActivity.this,User_loginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backtohome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin_panalActivity.this,HomepageActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btn_feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Admin_panalActivity.this,Addfeedback.class);
                 startActivity(intent);
             }
         });

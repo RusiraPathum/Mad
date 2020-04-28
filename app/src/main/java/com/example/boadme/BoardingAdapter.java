@@ -39,6 +39,11 @@ public class BoardingAdapter extends ArrayAdapter<Boarding> {
         TextView location = row.findViewById(R.id.location);
         TextView details = row.findViewById(R.id.details2);
         TextView price = row.findViewById(R.id.price);
+        TextView ownerName = row.findViewById(R.id.ownerName);
+        TextView address = row.findViewById(R.id.address);
+        TextView email = row.findViewById(R.id.email);
+        TextView phone = row.findViewById(R.id.phone);
+
 
 
 
@@ -46,6 +51,11 @@ public class BoardingAdapter extends ArrayAdapter<Boarding> {
         location.setText(boarding.getLocation());
         price.setText(boarding.getPrice());
         details.setText(boarding.getDetails2());
+        ownerName.setText(boarding.getOwnerName());
+        address.setText(boarding.getAddress());
+        email.setText(boarding.getEmail());
+        phone.setText(boarding.getPhone());
+
 
 
         return row;

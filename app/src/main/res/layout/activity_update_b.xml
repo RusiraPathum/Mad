@@ -177,7 +177,7 @@
             app:layout_constraintTop_toBottomOf="@+id/location" />
 
         <TextView
-            android:id="@+id/details2"
+            android:id="@+id/details"
             android:layout_width="177dp"
             android:layout_height="33dp"
             android:layout_marginStart="10dp"
@@ -207,7 +207,7 @@
             app:layout_constraintTop_toBottomOf="@+id/type2" />
 
         <TextView
-            android:id="@+id/price"
+            android:id="@+id/price2"
             android:layout_width="177dp"
             android:layout_height="33dp"
             android:layout_marginStart="10dp"

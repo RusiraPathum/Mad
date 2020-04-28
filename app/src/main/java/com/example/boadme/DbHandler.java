@@ -17,6 +17,9 @@ public class DbHandler extends SQLiteOpenHelper {
     private static final String DB_NAME = "hostal.db";
     private static final String TABLE_NAME = "hostal_db";
 
+
+
+
     private static final String ID = "id";
     private static final String OWNER_NAME = "owner_name";
     private static final String HOSTAL_LOCATION = "hostal_location";
@@ -27,6 +30,16 @@ public class DbHandler extends SQLiteOpenHelper {
     private static final String PRICE = "price";
     private static final String STARTED = "started";
     private static final String FINISHED = "finished";
+
+    ///////////////////////////////FEEDBACK///////////////////////////////////
+    private static final String TABLE_NAME_fd = "feedback_db";
+
+    private static final String ID_FEEDBACK = "id";
+    private static final String CUSTOMER_NAME = "customer_name";
+    private static final String CUSTOMER_EMAIL  = "customer_email";
+    private static final String CUSTOMER_COMMENT = "customer_comment";
+    private static final String STARTED_FEEDBACK = "started";
+    private static final String FINISHED_FEEDBACK = "finished";
 
 
     ///////////////////////////////BOARDING////////////////////////////////////////
@@ -79,6 +92,20 @@ public class DbHandler extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(CREATE_TABLE_BOARDING);
 
+
+       ////////////////////////////FEEDBACK////////////////////////////////////
+        String TABLE_CREATE_FEEDBACK = "CREATE TABLE "+TABLE_NAME_fd+" " +
+                "("
+                +ID_FEEDBACK+" INTEGER PRIMARY KEY AUTOINCREMENT,"
+                +CUSTOMER_NAME + " TEXT,"
+                +CUSTOMER_EMAIL+ " TEXT,"
+                +CUSTOMER_COMMENT + " TEXT,"
+                +STARTED_FEEDBACK+ " TEXT,"
+                +FINISHED_FEEDBACK+ " TEXT" +
+                ");";
+
+        sqLiteDatabase.execSQL(TABLE_CREATE_FEEDBACK);
+
     }
 
     @Override
@@ -92,6 +119,11 @@ public class DbHandler extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(DROP_TABLE_BOARDING);
 
+        onCreate(sqLiteDatabase);
+        /////////////////////////////FEEDBACK///////////////////////////////
+        String DROP_TABLE_FEEDBACK= "DROP TABLE IF EXISTS "+ TABLE_NAME_fd;
+
+        sqLiteDatabase.execSQL(DROP_TABLE_FEEDBACK);
         onCreate(sqLiteDatabase);
 
     }
@@ -164,6 +196,7 @@ public class DbHandler extends SQLiteOpenHelper {
     }
 
 
+
     ///////////////////////////////////////////////////////////////////////////////////
     //////////////////Boarding//////////////////
 
@@ -213,7 +246,6 @@ public class DbHandler extends SQLiteOpenHelper {
     public void deleteBoarding(int i) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
-
         sqLiteDatabase.delete(table_name, id + "=?", new String[]{String.valueOf(i)});
         sqLiteDatabase.close();
     }
@@ -230,11 +262,141 @@ public class DbHandler extends SQLiteOpenHelper {
 
         Boarding boarding;
         if (cursor != null) {
-            boarding = new Boarding(
+            boarding = new Boarding();}
+
+    public Hostal getSingaleHostal(int id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME, new String[]{ID,OWNER_NAME,HOSTAL_LOCATION,PHONE_NUM,
+                        EMAIL,ADDRESS,NUM_OF_RM,PRICE,STARTED,FINISHED},
+                ID + "= ?",new String[]{String.valueOf(id)},null,null,null);
+
+        Hostal hostal;
+
+        if (cursor != null){
+            cursor.moveToFirst();
+           hostal = new Hostal(
+                   cursor.getInt(0),
+                   cursor.getString(1),
+                   cursor.getString(2),
+                   cursor.getString(3),
+                   cursor.getString(4),
+                   cursor.getString(5),
+                   cursor.getString(6),
+                   cursor.getString(7),
+                   cursor.getLong(8),
+                   cursor.getLong(9)
+           );
+           return hostal;
+
+        }
+        return null;
+
+    }
+
+    public int updateHostal(Hostal hostal){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(OWNER_NAME,hostal.getOwner_name());
+        contentValues.put(HOSTAL_LOCATION,hostal.getHostal_location());
+        contentValues.put(PHONE_NUM,hostal.getPhone_num());
+        contentValues.put(EMAIL,hostal.getEmail());
+        contentValues.put(ADDRESS,hostal.getAddress());
+        contentValues.put(NUM_OF_RM,hostal.getNum_of_rm());
+        contentValues.put(PRICE,hostal.getPrice());
+        contentValues.put(STARTED,hostal.getStarted());
+        contentValues.put(FINISHED,hostal.getFinished());
+
+        int status = sqLiteDatabase.update(TABLE_NAME,contentValues,
+                ID +" =?",
+                new String[]{String.valueOf(hostal.getId())});
+
+        sqLiteDatabase.close();
+
+        return status;
+    }
+
+
+
+    //FEEDBACK
+
+    public void add_Feedback(Feedback feedback){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(CUSTOMER_NAME,feedback.getCustomer_name ());
+        contentValues.put(CUSTOMER_EMAIL,feedback.getCustomer_email ());
+        contentValues.put(CUSTOMER_COMMENT ,feedback.getCustomer_comment ());
+        contentValues.put(STARTED_FEEDBACK,feedback.getStarted());
+        contentValues.put(FINISHED_FEEDBACK,feedback.getFinished());
+
+        sqLiteDatabase.insert(TABLE_NAME_fd, null,contentValues);
+        sqLiteDatabase.close();
+
+    }
+    //FEEDBACK
+    public  int countFeedback(){
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM "+ TABLE_NAME_fd;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+        return cursor.getCount();
+    }
+    //FEEDBACK
+    public List<Feedback> getAllFeedback(){
+
+        List<Feedback> feedbacks = new ArrayList<>();
+        SQLiteDatabase sqLiteDatabase = getReadableDatabase();
+        String query = "SELECT * FROM "+TABLE_NAME_fd;
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+
+        if (cursor.moveToFirst()){
+            do {
+
+                Feedback feedback = new Feedback ();
+
+                feedback.setId(cursor.getInt(0));
+                feedback.setCustomer_name (cursor.getString(1));
+                feedback.setCustomer_email (cursor.getString(2));
+                feedback.setCustomer_comment (cursor.getString(3));
+                feedback.setStarted(cursor.getLong(4));
+                feedback.setFinished(cursor.getLong(5));
+
+                feedbacks.add(feedback);
+
+            }while (cursor.moveToNext());
+        }
+        return feedbacks;
+    }
+    //FEEDBACK
+    public void deleteFeedback(int id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.delete(TABLE_NAME_fd,"id =?",new String[]{String.valueOf(id)});
+        sqLiteDatabase.close();
+    }
+    //FEEDBACK
+    public Feedback getfeedbacklayout(int id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.query(TABLE_NAME_fd, new String[]{ID_FEEDBACK,CUSTOMER_NAME,CUSTOMER_EMAIL,CUSTOMER_COMMENT,
+                        STARTED_FEEDBACK,FINISHED_FEEDBACK},
+                ID_FEEDBACK + "= ?",new String[]{String.valueOf(id)},null,null,null);
+
+        Feedback feedback;
+        if (cursor != null){
+            cursor.moveToFirst();
+            feedback = new Feedback (
+
                     cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
+
                     cursor.getString(4),
                     cursor.getString(5),
                     cursor.getString(6),
@@ -248,5 +410,35 @@ public class DbHandler extends SQLiteOpenHelper {
         return null;
     }
 
+                    cursor.getLong(4),
+                    cursor.getLong(5)
+            );
+            return feedback;
+
+        }
+        return null;
+
+    }
+    //FEEDBACK
+
+    public int updateFeedback(Feedback feedback){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(CUSTOMER_NAME,feedback.getCustomer_name ());
+        contentValues.put(CUSTOMER_EMAIL,feedback.getCustomer_email ());
+        contentValues.put(CUSTOMER_COMMENT,feedback.getCustomer_comment ());
+        contentValues.put(STARTED_FEEDBACK,feedback.getStarted());
+        contentValues.put(FINISHED_FEEDBACK,feedback.getFinished());
+
+        int status = sqLiteDatabase.update(TABLE_NAME_fd,contentValues,
+                ID_FEEDBACK +" =?",
+                new String[]{String.valueOf(feedback.getId())});
+
+        sqLiteDatabase.close();
+
+        return status;
+    }
 }
 

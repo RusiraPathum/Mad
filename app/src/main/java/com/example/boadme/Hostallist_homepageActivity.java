@@ -8,8 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -18,24 +16,24 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Hostal_listviewActivity extends AppCompatActivity {
+public class Hostallist_homepageActivity extends AppCompatActivity {
 
-    private Button add,closefeedbacklist;
+    Button add_hostal;
+    TextView login;
     private ListView listview;
-    private TextView count;
     Context context;
     private DbHandler dbHandler;
     private List<Hostal> hostalList;
+    private TextView count;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hostal_listview);
+        setContentView(R.layout.activity_hostallist_homepage);
 
         context = this;
         dbHandler = new DbHandler(context);
-        add = findViewById(R.id.add);
-
         listview = findViewById(R.id.hostal_list);
         count = findViewById(R.id.hostal_count);
 
@@ -44,17 +42,30 @@ public class Hostal_listviewActivity extends AppCompatActivity {
 
         HostalAdapter hostalAdapter = new HostalAdapter(context,R.layout.singale_hostal,hostalList);
 
+        add_hostal = findViewById(R.id.add_hostal);
+        login = findViewById(R.id.login_text);
+
+        add_hostal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Hostallist_homepageActivity.this,Addhostal.class);
+                startActivity(intent);
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Hostallist_homepageActivity.this,User_loginActivity.class);
+                startActivity(intent);
+            }
+        });
+
         listview.setAdapter(hostalAdapter);
 
         int count_Hostal = dbHandler.countHostal();
         count.setText("Available "+count_Hostal+ " Hostal");
 
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(context,Addhostal.class));
-            }
-        });
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -71,19 +82,13 @@ public class Hostal_listviewActivity extends AppCompatActivity {
                 builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(context,Hostal_listviewActivity.class));
+                        startActivity(new Intent(context,Hostallist_homepageActivity.class));
                     }
                 });
 
-                builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dbHandler.deleteHostal(hostal.getId());
-                        startActivity(new Intent(context,Hostal_listviewActivity.class));
-                    }
-                });
 
-                builder.setNeutralButton("Update", new DialogInterface.OnClickListener() {
+
+                builder.setNeutralButton("Book Now", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent = new Intent(context, Edit_hostalActivity.class);
@@ -97,6 +102,7 @@ public class Hostal_listviewActivity extends AppCompatActivity {
                 builder.show();
             }
         });
+
 
     }
 }

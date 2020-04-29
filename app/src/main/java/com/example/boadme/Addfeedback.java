@@ -94,7 +94,7 @@ public class Addfeedback extends AppCompatActivity {
                 long started = System.currentTimeMillis();
 
                 Feedback feedback  = new Feedback ( Name,Email,Comment,started,0);
-                dbHandler.add_Feedback (feedback);
+                dbHandler.add_Feedback(feedback);
 
                 startActivity(intent);
 

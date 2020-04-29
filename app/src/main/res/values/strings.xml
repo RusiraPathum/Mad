@@ -120,6 +120,8 @@
     <string name="bookNow">BookNow</string>
     <string name="display">Display The Details</string>
     <string name="book_now">Book Now</string>
+    <string name="select">Select</string>
+    <string name="addnewB">Add New</string>
 
     <string name="pageindx">Feedback</string>
     <string name="txtname">Name :</string>
@@ -154,4 +156,5 @@
     <string name="closefeedbackhomepage" />
     <string name="fdhomepage">Please help us to serve you better by taking a couple of minutes.</string>
     <string name="closefdlist" />
+>>>>>>> origin/master
 </resources>

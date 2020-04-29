@@ -62,32 +62,32 @@ public class DbHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-        String TABLE_CREATE_QUERY = "CREATE TABLE "+TABLE_NAME+" " +
+        String TABLE_CREATE_QUERY = "CREATE TABLE " + TABLE_NAME + " " +
                 "("
-                +ID+" INTEGER PRIMARY KEY AUTOINCREMENT,"
-                +OWNER_NAME + " TEXT,"
-                +HOSTAL_LOCATION + " TEXT,"
-                +PHONE_NUM + " TEXT,"
-                +EMAIL + " TEXT,"
-                +ADDRESS + " TEXT,"
-                +NUM_OF_RM + " INT,"
-                +PRICE + " INT,"
-                +STARTED+ " TEXT,"
-                +FINISHED+ " TEXT" +
+                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + OWNER_NAME + " TEXT,"
+                + HOSTAL_LOCATION + " TEXT,"
+                + PHONE_NUM + " TEXT,"
+                + EMAIL + " TEXT,"
+                + ADDRESS + " TEXT,"
+                + NUM_OF_RM + " INT,"
+                + PRICE + " INT,"
+                + STARTED + " TEXT,"
+                + FINISHED + " TEXT" +
                 ");";
 
         sqLiteDatabase.execSQL(TABLE_CREATE_QUERY);
 
-        String CREATE_TABLE_BOARDING = "CREATE TABLE " + table_name +""+
+        String CREATE_TABLE_BOARDING = "CREATE TABLE " + table_name + " " +
                 "("
-                +id+" INTEGER PRIMARY KEY AUTOINCREMENT,"
-                +ownerName + " TEXT,"
-                +phone + " INTEGER,"
-                +price + " INTEGER, "
-                +location + " TEXT,"
-                +details + " TEXT,"
-                +address + " TEXT,"
-                +email + " TEXT" +
+                + id + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + ownerName + " TEXT,"
+                + phone + " INTEGER,"
+                + price + " INTEGER, "
+                + location + " TEXT,"
+                + details + " TEXT,"
+                + address + " TEXT,"
+                + email + " TEXT" +
                 ");";
 
         sqLiteDatabase.execSQL(CREATE_TABLE_BOARDING);
@@ -111,11 +111,11 @@ public class DbHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
-        String DROP_TABLE_QUERY = "DROP TABLE IF EXISTS "+ TABLE_NAME;
+        String DROP_TABLE_QUERY = "DROP TABLE IF EXISTS " + TABLE_NAME;
 
         sqLiteDatabase.execSQL(DROP_TABLE_QUERY);
 
-        String DROP_TABLE_BOARDING = "DROP TABLE IF EXISTS "+ table_name;
+        String DROP_TABLE_BOARDING = "DROP TABLE IF EXISTS " + table_name;
 
         sqLiteDatabase.execSQL(DROP_TABLE_BOARDING);
 
@@ -128,44 +128,44 @@ public class DbHandler extends SQLiteOpenHelper {
 
     }
 
-    public void add_Hostal(Hostal hostal){
+    public void add_Hostal(Hostal hostal) {
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(OWNER_NAME,hostal.getOwner_name());
-        contentValues.put(HOSTAL_LOCATION,hostal.getHostal_location());
-        contentValues.put(PHONE_NUM,hostal.getPhone_num());
-        contentValues.put(EMAIL,hostal.getEmail());
-        contentValues.put(ADDRESS,hostal.getAddress());
-        contentValues.put(NUM_OF_RM,hostal.getNum_of_rm());
-        contentValues.put(PRICE,hostal.getPrice());
-        contentValues.put(STARTED,hostal.getStarted());
-        contentValues.put(FINISHED,hostal.getFinished());
+        contentValues.put(OWNER_NAME, hostal.getOwner_name());
+        contentValues.put(HOSTAL_LOCATION, hostal.getHostal_location());
+        contentValues.put(PHONE_NUM, hostal.getPhone_num());
+        contentValues.put(EMAIL, hostal.getEmail());
+        contentValues.put(ADDRESS, hostal.getAddress());
+        contentValues.put(NUM_OF_RM, hostal.getNum_of_rm());
+        contentValues.put(PRICE, hostal.getPrice());
+        contentValues.put(STARTED, hostal.getStarted());
+        contentValues.put(FINISHED, hostal.getFinished());
 
-        sqLiteDatabase.insert(TABLE_NAME, null,contentValues);
+        sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
         sqLiteDatabase.close();
 
     }
 
-    public  int countHostal(){
+    public int countHostal() {
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        String query = "SELECT * FROM "+ TABLE_NAME;
+        String query = "SELECT * FROM " + TABLE_NAME;
 
-        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
         return cursor.getCount();
     }
 
-    public List<Hostal> getAllHostal(){
+    public List<Hostal> getAllHostal() {
 
         List<Hostal> hostals = new ArrayList<>();
         SQLiteDatabase sqLiteDatabase = getReadableDatabase();
-        String query = "SELECT * FROM "+TABLE_NAME;
+        String query = "SELECT * FROM " + TABLE_NAME;
 
-        Cursor cursor = sqLiteDatabase.rawQuery(query,null);
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 
-        if (cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             do {
 
                 Hostal hostal = new Hostal();
@@ -183,15 +183,15 @@ public class DbHandler extends SQLiteOpenHelper {
 
                 hostals.add(hostal);
 
-            }while (cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
         return hostals;
     }
 
-    public void deleteHostal(int id){
+    public void deleteHostal(int id) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
-        sqLiteDatabase.delete(TABLE_NAME,"id =?",new String[]{String.valueOf(id)});
+        sqLiteDatabase.delete(TABLE_NAME, "id =?", new String[]{String.valueOf(id)});
         sqLiteDatabase.close();
     }
 
@@ -200,27 +200,111 @@ public class DbHandler extends SQLiteOpenHelper {
     ///////////////////////////////////////////////////////////////////////////////////
     //////////////////Boarding//////////////////
 
-    public void getDetailsBoarding(Boarding boarding){
+    public void getDetailsBoarding(Boarding boarding) {
 
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(ownerName,boarding.getOwnerName());
-        contentValues.put(phone,boarding.getPhone());
-        contentValues.put(price,boarding.getPrice());
-        contentValues.put(location,boarding.getLocation());
-        contentValues.put(address,boarding.getAddress());
-        contentValues.put(email,boarding.getEmail());
-        contentValues.put(details,boarding.getDetails2());
+        contentValues.put(ownerName, boarding.getOwnerName());
+        contentValues.put(phone, boarding.getPhone());
+        contentValues.put(price, boarding.getPrice());
+        contentValues.put(location, boarding.getLocation());
+        contentValues.put(address, boarding.getAddress());
+        contentValues.put(email, boarding.getEmail());
+        contentValues.put(details, boarding.getDetails2());
 
         //save to table
-        sqLiteDatabase.insert(table_name,null,contentValues);
+        sqLiteDatabase.insert(table_name, null, contentValues);
+        sqLiteDatabase.close();
+    }
+
+    public List<Boarding> displayDetailsB() {
+        List<Boarding> boardings = new ArrayList();
+        SQLiteDatabase database = getReadableDatabase();
+        String query = "SELECT * FROM " + table_name;
+
+        Cursor cursor = database.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Boarding boarding = new Boarding();
+                boarding.setLocation(cursor.getString(4));
+                boarding.setPrice(cursor.getString(3));
+                boarding.setDetails2(cursor.getString(5));
+                boarding.setOwnerName(cursor.getString(1));
+                boarding.setAddress(cursor.getString(6));
+                boarding.setEmail(cursor.getString(7));
+                boarding.setPhone(cursor.getString(2));
+
+                boardings.add(boarding);
+            } while (cursor.moveToNext());
+        }
+        return boardings;
+    }
+
+    public void deleteBoarding(int i) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        sqLiteDatabase.delete(table_name, id +" =?",
+                new String[]{String.valueOf(i)});
         sqLiteDatabase.close();
     }
 
 
+    public Boarding getSingleBoarding(int i) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
+        Cursor cursor = sqLiteDatabase.query(table_name, new String[]{id, ownerName, phone, price, location, details, address, email},
+                "id =?",
+                new String[]{String.valueOf(i)},
+                null,
+                null,
+                null);
+
+        Boarding boarding;
+        if (cursor != null) {
+            cursor.moveToFirst();
+            boarding = new Boarding(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getString(7)
+
+            );
+            return boarding;
+
+        }
+        return null;
+
+
+    }
+
+    public int updateBoarding(Boarding boarding){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(ownerName, boarding.getOwnerName());
+        contentValues.put(phone, boarding.getPhone());
+        contentValues.put(price, boarding.getPrice());
+        contentValues.put(location, boarding.getLocation());
+        contentValues.put(address, boarding.getAddress());
+        contentValues.put(email, boarding.getEmail());
+        contentValues.put(details, boarding.getDetails2());
+
+        int  status = sqLiteDatabase.update(table_name,contentValues,id +" =?",
+                new String[]{String.valueOf(boarding.getId())});
+
+        sqLiteDatabase.close();
+        return status;
+
+    }
 
 
 
@@ -351,19 +435,21 @@ public class DbHandler extends SQLiteOpenHelper {
         if (cursor != null){
             cursor.moveToFirst();
             feedback = new Feedback (
+
                     cursor.getInt(0),
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
                     cursor.getLong(4),
                     cursor.getLong(5)
+
             );
             return feedback;
-
         }
-        return null;
 
-    }
+    return null;
+}
+
     //FEEDBACK
 
     public int updateFeedback(Feedback feedback){
@@ -386,3 +472,4 @@ public class DbHandler extends SQLiteOpenHelper {
         return status;
     }
 }
+

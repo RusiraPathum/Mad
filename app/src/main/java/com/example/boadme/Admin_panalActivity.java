@@ -48,7 +48,7 @@ public class Admin_panalActivity extends AppCompatActivity {
         boarding_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Admin_panalActivity.this,displayDetailsB.class);
+                Intent intent = new Intent(Admin_panalActivity.this,BoardingHome.class);
                 startActivity(intent);
             }
         });
@@ -109,12 +109,12 @@ public class Admin_panalActivity extends AppCompatActivity {
             }
         });
 
-        btn_feedback.setOnClickListener(new View.OnClickListener() {
+        /*btn_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Admin_panalActivity.this,Addfeedback.class);
                 startActivity(intent);
             }
-        });
+        });*/
     }
 }

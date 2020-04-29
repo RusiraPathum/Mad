@@ -31,7 +31,7 @@ public class HomepageActivity extends AppCompatActivity {
         boarding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(HomepageActivity.this,Boardinglist_homepageActivity.class);
+                Intent intent = new Intent(HomepageActivity.this,BoardingList_homepage.class);
                 startActivity(intent);
             }
         });

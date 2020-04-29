@@ -246,9 +246,11 @@ public class DbHandler extends SQLiteOpenHelper {
     public void deleteBoarding(int i) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
-        sqLiteDatabase.delete(table_name, id + "=?", new String[]{String.valueOf(i)});
+        sqLiteDatabase.delete(table_name, id +" =?",
+                new String[]{String.valueOf(i)});
         sqLiteDatabase.close();
     }
+
 
     public Boarding getSingleBoarding(int i) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
@@ -262,7 +264,49 @@ public class DbHandler extends SQLiteOpenHelper {
 
         Boarding boarding;
         if (cursor != null) {
-            boarding = new Boarding();}
+            cursor.moveToFirst();
+            boarding = new Boarding(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getString(7)
+
+            );
+            return boarding;
+
+        }
+        return null;
+
+
+    }
+
+    public int updateBoarding(Boarding boarding){
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(ownerName, boarding.getOwnerName());
+        contentValues.put(phone, boarding.getPhone());
+        contentValues.put(price, boarding.getPrice());
+        contentValues.put(location, boarding.getLocation());
+        contentValues.put(address, boarding.getAddress());
+        contentValues.put(email, boarding.getEmail());
+        contentValues.put(details, boarding.getDetails2());
+
+        int  status = sqLiteDatabase.update(table_name,contentValues,id +" =?",
+                new String[]{String.valueOf(boarding.getId())});
+
+        sqLiteDatabase.close();
+        return status;
+
+    }
+
+
 
     public Hostal getSingaleHostal(int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
@@ -396,29 +440,16 @@ public class DbHandler extends SQLiteOpenHelper {
                     cursor.getString(1),
                     cursor.getString(2),
                     cursor.getString(3),
-
-                    cursor.getString(4),
-                    cursor.getString(5),
-                    cursor.getString(6),
-                    cursor.getString(7)
-
-
-            );
-            return boarding;
-        }
-
-        return null;
-    }
-
                     cursor.getLong(4),
                     cursor.getLong(5)
+
             );
             return feedback;
-
         }
-        return null;
 
-    }
+    return null;
+}
+
     //FEEDBACK
 
     public int updateFeedback(Feedback feedback){

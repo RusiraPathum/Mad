@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/background"
     tools:context=".updateB">
 
 
@@ -20,9 +20,8 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
-            android:background="@color/colorAccent"
             android:text="Update The Details"
-            android:textSize="36sp"
+            android:textSize="50sp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +32,7 @@
             android:layout_width="177dp"
             android:layout_height="33dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="50dp"
             android:layout_marginEnd="8dp"
             android:height="20dp"
             android:text="@string/ownerNameB"

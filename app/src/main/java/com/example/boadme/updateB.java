@@ -3,6 +3,7 @@ package com.example.boadme;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,8 +35,8 @@ public class updateB extends AppCompatActivity {
 
         update = findViewById(R.id.update);
 
-        final String i = getIntent().getStringExtra("id");
-        Boarding boarding = dbHandler.getSingleBoarding(Integer.parseInt(i));
+        final String id = getIntent().getStringExtra("id");
+        Boarding boarding = dbHandler.getSingleBoarding(Integer.parseInt(id));
 
         location.setText(boarding.getLocation());
         price.setText(boarding.getPrice());
@@ -55,6 +56,10 @@ public class updateB extends AppCompatActivity {
                 String Details2 = details2.getText().toString();
                 String Address = address.getText().toString();
                 String Email = email.getText().toString();
+
+                Boarding boarding = new Boarding(Integer.parseInt(id), OwnerName, Phone, Price, Location, Details2,Address,Email);
+                dbHandler.updateBoarding(boarding);
+                startActivity(new Intent(context,BoardingHome.class));
 
             }
         });

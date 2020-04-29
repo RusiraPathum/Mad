@@ -70,9 +70,10 @@ public class BoardingHome extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dbHandler.deleteBoarding(boarding.getId());
-                        startActivity(new Intent(context, BoardingHome.class));
+                        startActivity(new Intent(context, BoardingList_homepage.class));
                     }
                 });
+
 
                 builder.setNeutralButton("Update", new DialogInterface.OnClickListener() {
                     @Override

@@ -12,7 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AddRate extends AppCompatActivity {
     RatingBar ratingbar;
-    Button button,buttonclose;
+    Button buttonsubmit,buttonclose;
+
 
 
     @Override
@@ -25,20 +26,20 @@ public class AddRate extends AppCompatActivity {
     }
     public void addListenerOnButtonClick(){
         ratingbar= findViewById(R.id.ratingBar2);
-        button= findViewById(R.id.buttonSUBMIT);
+        buttonsubmit= findViewById(R.id.buttonSUBMIT);
         buttonclose= findViewById(R.id.closeratebtn);
 
+        Context context = this;
 
         //Performing action on Button Click
-        button.setOnClickListener(new View.OnClickListener(){
+        buttonsubmit.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View arg0) {
                 //Getting the rating and displaying it on the toast
                 String rating = String.valueOf(ratingbar.getRating());
                 Toast.makeText(getApplicationContext(), rating, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(AddRate.this, homefeedbackActivity.class);
-
+                Intent intent = new Intent(AddRate.this,homefeedbackActivity.class);
 
 
                 startActivity(intent);
@@ -46,6 +47,8 @@ public class AddRate extends AppCompatActivity {
             }
 
         });
+
+
         buttonclose.setOnClickListener(new View.OnClickListener(){
 
             @Override

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -50,9 +51,18 @@ public class Addfeedback extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(Addfeedback.this, Feedback_listviewActivity.class);
 
+
                 String Name = editname.getText().toString();
+                if(Name.length ()==0){
+                    editname.requestFocus ();
+                    editname.setError("Name cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+
                 String validemail = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
 
                         "\\@" +
@@ -69,6 +79,7 @@ public class Addfeedback extends AppCompatActivity {
 
 
                 String Email =  editemail.getText().toString();
+
                 Matcher matcher= Pattern.compile(validemail).matcher(Email);
 
 
@@ -89,6 +100,12 @@ public class Addfeedback extends AppCompatActivity {
 
 
                 String Comment = editcomment.getText().toString();
+                if(Comment.length ()==0){
+                    editcomment.requestFocus ();
+                    editcomment.setError("Comment cannot be empty");
+                    boolean b = false;
+                    return;
+                }
 
 
                 long started = System.currentTimeMillis();

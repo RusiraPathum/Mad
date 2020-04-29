@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Edit_feedbackActivity extends AppCompatActivity {
 
@@ -59,14 +63,56 @@ public class Edit_feedbackActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String edit_name=  customer_name.getText().toString();
+                if(edit_name.length ()==0){
+                   customer_name.requestFocus ();
+                    customer_name.setError("Name cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+                String editvalidemail = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+
+                        "\\@" +
+
+                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+
+                        "(" +
+
+                        "\\." +
+
+                        "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+
+                        ")+";
                 String edit_email =customer_email.getText().toString();
+                Matcher matcher= Pattern.compile(editvalidemail).matcher(edit_email);
+
+
+                if (matcher.matches()){
+                    customer_email.setError(null);
+                    boolean b = true;
+
+
+
+                }
+                else {
+                    customer_email.setError("Please enter a valid email address");
+                    boolean b = false;
+                    return;
+
+                }
                 String edit_comment =customer_comment.getText().toString();
 
+                if(edit_comment.length ()==0){
+                    customer_comment.requestFocus ();
+                    customer_comment.setError("Comment cannot be empty");
+                    boolean b = false;
+                    return;
+                }
 
                 updateDate = System.currentTimeMillis();
 
                 Feedback feedback= new Feedback (Integer.parseInt(id),edit_name,edit_email,edit_comment,updateDate,0);
                 int state = dbHandler.updateFeedback (feedback);
+                Toast.makeText(getApplicationContext(), "Updated Successfully", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent (context,Feedback_listviewActivity.class));
             }
         });

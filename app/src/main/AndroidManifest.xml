@@ -9,43 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view">
 
-        <activity android:name=".displayDetailsB" />
-        <activity android:name=".updateB" />
-        <activity android:name=".UserListB" />
-        <activity android:name=".getDetails"/>
-
-        <activity android:name=".Boardinglist_homepageActivity">
-
-        </activity>
-        <activity android:name=".Hostallist_homepageActivity" >
-
-        </activity>
-        <activity android:name=".Admin_panalActivity" />
-        <activity android:name=".HomepageActivity" >
-
-        </activity>
-        <activity android:name=".User_registerActivity" />
-        <activity android:name=".User_loginActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
-        </activity>
-        <activity android:name=".Hostal_listviewActivity" />
-        <activity android:name=".Edit_hostalActivity" />
-        <activity android:name=".Addhostal" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity >
+
+        <activity android:name=".update" />
+        <activity android:name=".Add" >
+
+        </activity >
         <activity android:name=".MainActivity" />
-        <activity android:name=".Feedback_listviewActivity" />
-        <activity android:name=".homefeedbackActivity">
-            
-        <activity android:name=".Edit_feedbackActivity" />
-        <activity android:name=".Addfeedback">
-
-
-        </activity>
-        <activity android:name=".AddRate" />
     </application>
 
 </manifest>

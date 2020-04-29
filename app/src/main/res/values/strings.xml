@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BoadMe</string>
+    <string name="app_name">BoardMe</string>
     <string name="owner_name">Owner Name</string>
     <string name="owner_name_edit" />
     <string name="hostal_location">Hostal Loccation</string>
@@ -28,6 +28,7 @@
     <string name="delete">Delete</string>
     <string name="title_activity_display_details_b">displayDetailsB</string>
     <string name="large_text">
+
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
@@ -156,5 +157,24 @@
     <string name="closefeedbackhomepage" />
     <string name="fdhomepage">Please help us to serve you better by taking a couple of minutes.</string>
     <string name="closefdlist" />
->>>>>>> origin/master
+    <string name="add_booking">add_booking</string>
+    <string name="contact" />
+    <string name="Hint2">Mobile  number and email address</string>
+    <string name="age" />
+    <string name="Hint3">Age</string>
+    <string name="name1" />
+    <string name="Hint1">Name</string>
+    <string name="gen" />
+    <string name="Hint7">Gender</string>
+    <string name="add_book">ADD</string>
+    <string name="contact_1" />
+    <string name="Hint5">"Mobile Number or email address "</string>
+    <string name="name_1" />
+    <string name="Hint4">Name</string>
+    <string name="Hint6">Age</string>
+    <string name="age_1" />
+    <string name="booking_profile">Booking Profile</string>
+    <string name="Hint8">Gender</string>
+    <string name="gen01" />
+    >>>>>>> origin/master
 </resources>

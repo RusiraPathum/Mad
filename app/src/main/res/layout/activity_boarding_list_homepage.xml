@@ -40,6 +40,18 @@
             android:layout_alignParentRight="true"
             android:background="@drawable/homepageusericon" />
 
+        <TextView
+            android:id="@+id/login_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-4dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="71dp"
+            android:text="Login"
+            android:textColor="#000000" />
+
 
     </RelativeLayout>
 
@@ -64,7 +76,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/listview"
-        app:layout_constraintVertical_bias="0.872">
+        app:layout_constraintVertical_bias="1.0">
 
         <Button
             android:id="@+id/feedback_btn"
@@ -72,9 +84,11 @@
             android:layout_height="25dp"
             android:layout_below="@+id/add_hostal"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="26dp"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="12dp"
+            android:layout_marginBottom="23dp"
             android:background="#e2a500"
             android:text="Feedback"
             android:textColor="#000000" />
@@ -123,13 +137,13 @@
             android:textSize="15dp" />
 
         <Button
-            android:id="@+id/add_hostal"
+            android:id="@+id/add_board"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="13dp"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="14dp"
             android:text="Rent your Home" />
 
     </RelativeLayout>

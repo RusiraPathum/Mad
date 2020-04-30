@@ -10,18 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".Admin_panalActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
         <activity android:name=".view">
 
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-
-        <activity android:name=".Edit_boardingActivity">
 
         <activity android:name=".Boardinglist_homepageActivity">
         </activity>
@@ -38,16 +29,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Edit_feedbackActivity"></activity>
-        <activity android:name=".User_loginActivity"></activity>
-        <activity android:name=".HomepageActivity"></activity>
-        <activity android:name=".BoardingList_homepage">
-        </activity>
-        <activity android:name=".BoardingHome">
-        </activity>
-        <activity android:name=".getDetails"></activity>
-        <activity android:name=".Hostallist_homepageActivity"></activity>
 
         <activity android:name=".Admin_panalActivity" />
 
@@ -66,8 +47,6 @@
         <activity android:name=".BoardingList_homepage" />
 
         <activity android:name=".BoardingHome" />
-
-        <activity android:name=".updateB" />
 
         <activity android:name=".getDetails" />
 

@@ -39,9 +39,37 @@ public class getDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String OwnerName = ownerName.getText().toString();
+                if(OwnerName.length() == 0){
+                    ownerName.requestFocus();
+                    ownerName.setError("Name cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+
                 String Phone = phone.getText().toString();
+                if(Phone.length() == 0){
+                    phone.requestFocus();
+                    phone.setError("Phone number cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+
                 String Price = price.getText().toString();
+                if(Price.length() == 0){
+                    price.requestFocus();
+                    price.setError("Price cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+
                 String Location = location.getText().toString();
+                if(Location.length() == 0){
+                    location.requestFocus();
+                    location.setError("Location cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+
                 String Details2 = details2.getText().toString();
                 String Address = address.getText().toString();
                 String Email = email.getText().toString();
@@ -49,7 +77,7 @@ public class getDetails extends AppCompatActivity {
                 Boarding boarding = new Boarding(OwnerName,Phone,Price,Location,Details2,Address,Email);
                 dbHandler.getDetailsBoarding(boarding);
 
-                startActivity(new Intent(context,BoardingHome.class));
+                startActivity(new Intent(context,HomepageActivity.class));
 
             }
         });

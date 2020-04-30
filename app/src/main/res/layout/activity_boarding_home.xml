@@ -39,23 +39,105 @@
             android:layout_width="75dp"
             android:layout_height="78dp"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="9dp"
             android:background="@drawable/homepageusericon" />
+
+        <TextView
+            android:id="@+id/login_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="-8dp"
+            android:layout_marginEnd="29dp"
+            android:layout_marginBottom="71dp"
+            android:text="Login"
+            android:textColor="#000000" />
 
 
     </RelativeLayout>
 
     <ListView
         android:id="@+id/listview"
-        android:layout_width="400dp"
-        android:layout_height="485dp"
+        android:layout_width="411dp"
+        android:layout_height="438dp"
         android:layout_marginTop="32dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.747" />
+        app:layout_constraintVertical_bias="0.537" />
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#323A45"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/feedback_btn"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="27dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="21dp"
+            android:background="#e2a500"
+            android:text="  Feedback"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/contact_text"
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="0dp"
+            android:text="Contact Details"
+            android:textColor="#f2f2f2"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/contact_email_text"
+            android:layout_width="190dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/contact_text"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="211dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="51dp"
+            android:layout_marginEnd="0dp"
+            android:text="boardmeapp@gmail.com"
+            android:textColor="#f2f2f2"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/contact_email_text"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="211dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="79dp"
+            android:layout_marginEnd="0dp"
+            android:text="0362255568"
+            android:textColor="#f2f2f2"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

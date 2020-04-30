@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class Admin_panalActivity extends AppCompatActivity {
 
     TextView add_boarding, boarding_list, add_hostal, hostal_list, add_feedback, feedback_list, add_booking, booking_list, login_text;
-    Button backtohome;
+    Button backtohome, feedback;;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class Admin_panalActivity extends AppCompatActivity {
         booking_list = findViewById(R.id.booking_panal_bookinglist);
         login_text = findViewById(R.id.login_text);
         backtohome = findViewById(R.id.backtohome);
+        feedback = findViewById(R.id.feedback_btn);
 
         login_text.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +89,7 @@ public class Admin_panalActivity extends AppCompatActivity {
         add_booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Admin_panalActivity.this,User_loginActivity.class);
+                Intent intent = new Intent(Admin_panalActivity.this,Add.class);
                 startActivity(intent);
             }
         });
@@ -96,7 +97,7 @@ public class Admin_panalActivity extends AppCompatActivity {
         booking_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Admin_panalActivity.this,User_loginActivity.class);
+                Intent intent = new Intent(Admin_panalActivity.this,view.class);
                 startActivity(intent);
             }
         });
@@ -109,12 +110,12 @@ public class Admin_panalActivity extends AppCompatActivity {
             }
         });
 
-        /*btn_feedback.setOnClickListener(new View.OnClickListener() {
+        feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Admin_panalActivity.this,Addfeedback.class);
                 startActivity(intent);
             }
-        });*/
+        });
     }
 }

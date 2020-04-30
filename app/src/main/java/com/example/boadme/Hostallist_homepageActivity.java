@@ -91,7 +91,7 @@ public class Hostallist_homepageActivity extends AppCompatActivity {
                 builder.setNeutralButton("Book Now", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(context, Edit_hostalActivity.class);
+                        Intent intent = new Intent(context, Add.class);
                         intent.putExtra("id", String.valueOf(hostal.getId()));
                         startActivity(intent);
 

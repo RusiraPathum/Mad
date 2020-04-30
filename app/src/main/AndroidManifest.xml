@@ -9,24 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomepageActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Admin_panalActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Edit_boardingActivity">
+
+        </activity>
+        <activity android:name=".Edit_feedbackActivity"></activity>
+        <activity android:name=".User_loginActivity"></activity>
+        <activity android:name=".HomepageActivity"></activity>
         <activity android:name=".BoardingList_homepage">
-
         </activity>
         <activity android:name=".BoardingHome">
-
         </activity>
-        <activity android:name=".updateB" />
-
-        <activity android:name=".getDetails" >
-
-        </activity>
-        <activity android:name=".Hostal_listviewActivity" />
+        <activity android:name=".getDetails"></activity>
+        <activity android:name=".Hostallist_homepageActivity"></activity>
         <activity android:name=".Edit_hostalActivity" />
         <activity android:name=".Addhostal" />
         <activity android:name=".MainActivity" />

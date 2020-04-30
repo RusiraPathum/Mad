@@ -16,13 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardingList_homepage extends AppCompatActivity {
-   // private Button addNew;
     private ListView listview;
     Context context;
     private DbHandler dbHandler;
     private List<Boarding> boardingList;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +28,6 @@ public class BoardingList_homepage extends AppCompatActivity {
         context = this;
         dbHandler = new DbHandler(context);
 
-       // addNew = findViewById(R.id.addNew);
         listview = findViewById(R.id.listview);
 
         boardingList = new ArrayList<>();
@@ -41,14 +37,6 @@ public class BoardingList_homepage extends AppCompatActivity {
 
         listview.setAdapter(boardingAdapter);
 
-       /* addNew.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(context,getDetails.class));
-
-            }
-        });*/
-
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
@@ -57,13 +45,7 @@ public class BoardingList_homepage extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
                 builder.setTitle(boarding.getLocation());
-                builder.setMessage(boarding.getDetails2());
-                builder.setMessage(boarding.getDetails2());
-                builder.setMessage(boarding.getOwnerName());
-                builder.setMessage(boarding.getAddress());
-                builder.setMessage(boarding.getEmail());
-                builder.setMessage(boarding.getPhone());
-
+                builder.setMessage(boarding.getPrice());
 
                 builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override

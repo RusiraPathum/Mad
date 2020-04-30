@@ -45,7 +45,7 @@ public class Feedback_listviewActivity extends AppCompatActivity {
         closefeedbacklist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Feedback_listviewActivity.this,homefeedbackActivity.class);
+                Intent intent = new Intent(Feedback_listviewActivity.this,HomepageActivity.class);
                 startActivity(intent);
             }
         });

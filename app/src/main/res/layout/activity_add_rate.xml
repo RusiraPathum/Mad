@@ -10,20 +10,22 @@
         android:id="@+id/rate"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Test">
+        tools:context=".Test"
+        tools:layout_editor_absoluteX="-74dp"
+        tools:layout_editor_absoluteY="-60dp">
 
         <Button
             android:id="@+id/buttonSUBMIT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
+            android:background="@color/colorPrimaryDark"
             android:text="@string/submit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.86"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.752" />
+            app:layout_constraintVertical_bias="0.66" />
 
         <RatingBar
             android:id="@+id/ratingBar2"
@@ -41,7 +43,7 @@
             android:layout_width="202dp"
             android:layout_height="66dp"
             android:text="@string/rateus"
-            android:textColor="@color/design_default_color_error"
+            android:textColor="@color/design_default_color_on_secondary"
             android:textSize="36sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -62,6 +64,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.04" />
+
+        <Button
+            android:id="@+id/buttonlater"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_red_light"
+            android:text="@string/laterbtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.148"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.66" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

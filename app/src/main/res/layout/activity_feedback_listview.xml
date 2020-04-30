@@ -22,7 +22,7 @@
         android:layout_width="220dp"
         android:layout_height="39dp"
         android:text="@string/fdlist"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/holo_red_dark"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

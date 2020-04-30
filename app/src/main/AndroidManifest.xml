@@ -35,18 +35,16 @@
         <activity android:name=".Addhostal" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Feedback_listviewActivity" />
-        <activity android:name=".homefeedbackActivity">
+        <activity android:name=".Edit_feedbackActivity" />
+        <activity android:name=".Addfeedback">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter></activity>
-        <activity android:name=".Edit_feedbackActivity" />
-        <activity android:name=".Addfeedback">
-
+            </intent-filter>
 
         </activity>
-        <activity android:name=".AddRate" />
+        <activity android:name=".AddRate"/>
 
 
     </application>

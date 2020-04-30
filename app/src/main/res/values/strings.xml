@@ -143,7 +143,7 @@
     <string name="btnfdpage">Leave Us your Feedback</string>
     <string name="btnrate">Rate Us</string>
 
-    <string name="submit">Submit</string>
+    <string name="submit">Rate Us</string>
     <string name="rate_count">Available X Rates</string>
     <string name="clsbtn">Close</string>
     <string name="rateus">Rate Us</string>
@@ -154,4 +154,8 @@
     <string name="closefeedbackhomepage" />
     <string name="fdhomepage">Please help us to serve you better by taking a couple of minutes.</string>
     <string name="closefdlist" />
+    <string name="laterbtn">Later</string>
+    <string name="rte">Rate Us</string>
+    <string name="RateUsBoardme">Rate Us</string>
+
 </resources>

@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AddRate extends AppCompatActivity {
     RatingBar ratingbar;
-    Button buttonsubmit,buttonclose;
+    Button buttonsubmit,buttonclose,buttonlater;
 
 
 
@@ -28,8 +28,10 @@ public class AddRate extends AppCompatActivity {
         ratingbar= findViewById(R.id.ratingBar2);
         buttonsubmit= findViewById(R.id.buttonSUBMIT);
         buttonclose= findViewById(R.id.closeratebtn);
+        buttonlater= findViewById(R.id.buttonlater);
 
-        Context context = this;
+
+
 
         //Performing action on Button Click
         buttonsubmit.setOnClickListener(new View.OnClickListener(){
@@ -39,7 +41,10 @@ public class AddRate extends AppCompatActivity {
                 //Getting the rating and displaying it on the toast
                 String rating = String.valueOf(ratingbar.getRating());
                 Toast.makeText(getApplicationContext(), rating, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(AddRate.this,homefeedbackActivity.class);
+                Intent intent = new Intent(AddRate.this,Addfeedback.class);
+
+
+
 
 
                 startActivity(intent);
@@ -55,7 +60,23 @@ public class AddRate extends AppCompatActivity {
             public void onClick(View arg0) {
                 //Getting the rating and displaying it on the toast
 
-                Intent intent = new Intent(AddRate.this, homefeedbackActivity.class);
+                Intent intent = new Intent(AddRate.this, HomepageActivity.class);
+
+
+
+                startActivity(intent);
+
+            }
+
+        });
+
+        buttonlater.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View arg0) {
+                //Getting the rating and displaying it on the toast
+
+                Intent intent = new Intent(AddRate.this, HomepageActivity.class);
 
 
 

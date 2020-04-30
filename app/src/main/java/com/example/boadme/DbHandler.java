@@ -29,6 +29,8 @@ public class DbHandler extends SQLiteOpenHelper {
     private static final String STARTED = "started";
     private static final String FINISHED = "finished";
 
+
+
     ///////////////////////////////FEEDBACK///////////////////////////////////
     private static final String TABLE_NAME_fd = "feedback_db";
 
@@ -386,3 +388,4 @@ public class DbHandler extends SQLiteOpenHelper {
         return status;
     }
 }
+

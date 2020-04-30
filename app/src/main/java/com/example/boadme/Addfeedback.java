@@ -28,6 +28,7 @@ public class Addfeedback extends AppCompatActivity {
         editcomment = findViewById(R.id. editcomment);
 
         Button send = findViewById (R.id.sending);
+        Button rated = findViewById (R.id.buttonrating);
         Button closefeedback = findViewById (R.id.buttonclosefeedback);
         closefeedback.setOnClickListener(new View.OnClickListener(){
 
@@ -35,7 +36,7 @@ public class Addfeedback extends AppCompatActivity {
             public void onClick(View arg0) {
                 //Getting the rating and displaying it on the toast
 
-                Intent intent = new Intent(Addfeedback.this, homefeedbackActivity.class);
+                Intent intent = new Intent(Addfeedback.this, HomepageActivity.class);
 
 
 
@@ -116,6 +117,21 @@ public class Addfeedback extends AppCompatActivity {
                 startActivity(intent);
 
             }
+        });
+        rated.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View arg0) {
+                //Getting the rating and displaying it on the toast
+
+                Intent intent = new Intent(Addfeedback.this, AddRate.class);
+
+
+
+                startActivity(intent);
+
+            }
+
         });
 
     }

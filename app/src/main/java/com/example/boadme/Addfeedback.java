@@ -35,9 +35,6 @@ public class Addfeedback extends AppCompatActivity {
                 //Getting the rating and displaying it on the toast
 
                 Intent intent = new Intent(Addfeedback.this, homefeedbackActivity.class);
-
-
-
                 startActivity(intent);
 
             }
@@ -53,6 +50,13 @@ public class Addfeedback extends AppCompatActivity {
                 Intent intent = new Intent(Addfeedback.this, Feedback_listviewActivity.class);
 
                 String Name = editname.getText().toString();
+                if(Name.length() == 0){
+                    editname.requestFocus();
+                    editname.setError("Name cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+
                 String validemail = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
 
                         "\\@" +

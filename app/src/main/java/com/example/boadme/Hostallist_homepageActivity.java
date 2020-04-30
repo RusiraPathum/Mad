@@ -18,7 +18,7 @@ import java.util.List;
 
 public class Hostallist_homepageActivity extends AppCompatActivity {
 
-    Button add_hostal;
+    Button add_hostal, feedback_btn1;
     TextView login;
     private ListView listview;
     Context context;
@@ -44,6 +44,7 @@ public class Hostallist_homepageActivity extends AppCompatActivity {
 
         add_hostal = findViewById(R.id.add_hostal);
         login = findViewById(R.id.login_text);
+        feedback_btn1 = findViewById(R.id.feedback_btn);
 
         add_hostal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +101,14 @@ public class Hostallist_homepageActivity extends AppCompatActivity {
                 });
 
                 builder.show();
+            }
+        });
+
+        feedback_btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Hostallist_homepageActivity.this,Addfeedback.class);
+                startActivity(intent);
             }
         });
 

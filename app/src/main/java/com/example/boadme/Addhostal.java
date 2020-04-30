@@ -47,8 +47,29 @@ public class Addhostal extends AppCompatActivity {
                 String validEmail = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 String ownername = edit_ownername.getText().toString();
+                if(ownername.length() == 0){
+                    edit_ownername.requestFocus();
+                    edit_ownername.setError("Name cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+
                 String hostallocation = edit_hostallocation.getText().toString();
+                if(hostallocation.length() == 0){
+                    edit_hostallocation.requestFocus();
+                    edit_hostallocation.setError("Location cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+
                 String phonenum = edit_phonenum.getText().toString();
+                if(phonenum.length() == 0){
+                    edit_phonenum.requestFocus();
+                    edit_phonenum.setError("Phone number cannot be empty");
+                    boolean b = false;
+                    return;
+                }
+
                 String email = edit_email.getText().toString();
 
                 Matcher matcher = Pattern.compile(validEmail).matcher(email);
@@ -57,7 +78,7 @@ public class Addhostal extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Valid Email", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(context,HomepageActivity.class));
                 }else {
-                    Toast.makeText(Addhostal.this, "Invalid Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Addhostal.this, "Add  a hostel", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(context,Addhostal.class));
                 }
 

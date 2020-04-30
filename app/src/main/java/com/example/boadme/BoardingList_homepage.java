@@ -17,6 +17,7 @@ import java.util.List;
 
 public class BoardingList_homepage extends AppCompatActivity {
     private ListView listview;
+    Button add_board1, feedback_btn1;
     Context context;
     private DbHandler dbHandler;
     private List<Boarding> boardingList;
@@ -27,6 +28,9 @@ public class BoardingList_homepage extends AppCompatActivity {
         setContentView(R.layout.activity_boarding_list_homepage);
         context = this;
         dbHandler = new DbHandler(context);
+
+        add_board1 = findViewById(R.id.add_board);
+        feedback_btn1 = findViewById(R.id.feedback_btn);
 
         listview = findViewById(R.id.listview);
 
@@ -58,11 +62,27 @@ public class BoardingList_homepage extends AppCompatActivity {
                 builder.setNeutralButton("Book Now", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        startActivity(new Intent(context,BoardingHome.class));
+                        startActivity(new Intent(context,Add.class));
                     }
                 });
 
                 builder.show();
+            }
+        });
+
+        add_board1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BoardingList_homepage.this,getDetails.class);
+                startActivity(intent);
+            }
+        });
+
+        feedback_btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BoardingList_homepage.this,Addfeedback.class);
+                startActivity(intent);
             }
         });
 

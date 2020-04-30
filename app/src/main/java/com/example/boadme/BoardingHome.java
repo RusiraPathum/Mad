@@ -24,16 +24,13 @@ public class BoardingHome extends AppCompatActivity {
     private DbHandler dbHandler;
     private List<Boarding> boardingList;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boarding_home);
+
         context = this;
         dbHandler = new DbHandler(context);
-
-
         listview = findViewById(R.id.listview);
 
         boardingList = new ArrayList<>();
@@ -52,12 +49,6 @@ public class BoardingHome extends AppCompatActivity {
 
                 builder.setTitle(boarding.getLocation());
                 builder.setMessage(boarding.getDetails2());
-                builder.setMessage(boarding.getPrice());
-                builder.setMessage(boarding.getOwnerName());
-                builder.setMessage(boarding.getAddress());
-                builder.setMessage(boarding.getEmail());
-                builder.setMessage(boarding.getPhone());
-
 
                 builder.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -70,7 +61,7 @@ public class BoardingHome extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dbHandler.deleteBoarding(boarding.getId());
-                        startActivity(new Intent(context, BoardingList_homepage.class));
+                        startActivity(new Intent(context, BoardingHome.class));
                     }
                 });
 
@@ -78,9 +69,10 @@ public class BoardingHome extends AppCompatActivity {
                 builder.setNeutralButton("Update", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(context, updateB.class);
-                        intent.putExtra("id", String.valueOf(boarding.getId()));
+                        Intent intent = new Intent(context, Edit_boardingActivity.class);
+                        intent.putExtra("Id", String.valueOf(boarding.getId()));
                         startActivity(intent);
+
 
                     }
                 });

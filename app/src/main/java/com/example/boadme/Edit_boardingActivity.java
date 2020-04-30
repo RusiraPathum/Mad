@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class updateB extends AppCompatActivity {
+public class Edit_boardingActivity extends AppCompatActivity {
 
-    private EditText ownerName,phone,price,location,details2,address,email;
+    EditText ownerName,phone,price,location,details2,address,email;
     private Button update;
     private DbHandler dbHandler;
     private Context context;
@@ -20,7 +20,7 @@ public class updateB extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_b);
+        setContentView(R.layout.activity_edit_boarding);
 
         context = this;
         dbHandler = new DbHandler(context);
@@ -29,26 +29,26 @@ public class updateB extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         price = findViewById(R.id.price);
         location = findViewById(R.id.location);
-        details2 = findViewById(R.id.details2);
         address = findViewById(R.id.address);
+        details2 = findViewById(R.id.details2);
         email = findViewById(R.id.email);
 
         update = findViewById(R.id.update);
 
-        final String id = getIntent().getStringExtra("id");
+        final String id = getIntent().getStringExtra("Id");
         Boarding boarding = dbHandler.getSingleBoarding(Integer.parseInt(id));
 
-        location.setText(boarding.getLocation());
-        price.setText(boarding.getPrice());
-        details2.setText(boarding.getDetails2());
         ownerName.setText(boarding.getOwnerName());
-        address.setText(boarding.getAddress());
-        email.setText(boarding.getEmail());
         phone.setText(boarding.getPhone());
+        price.setText(boarding.getPrice());
+        location.setText(boarding.getLocation());
+        address.setText(boarding.getAddress());
+        details2.setText(boarding.getDetails2());
+        email.setText(boarding.getEmail());
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 String OwnerName = ownerName.getText().toString();
                 String Phone = phone.getText().toString();
                 String Price = price.getText().toString();
@@ -57,12 +57,12 @@ public class updateB extends AppCompatActivity {
                 String Address = address.getText().toString();
                 String Email = email.getText().toString();
 
-                Boarding boarding = new Boarding(Integer.parseInt(id), OwnerName, Phone, Price, Location, Details2,Address,Email);
-                dbHandler.updateBoarding(boarding);
+               Boarding boarding = new Boarding(Integer.parseInt(id), OwnerName, Phone, Price, Location, Details2,Address,Email);
+                int state = dbHandler.updateBoarding(boarding);
                 startActivity(new Intent(context,BoardingHome.class));
-
             }
         });
+
 
     }
 }

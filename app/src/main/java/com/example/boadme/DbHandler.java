@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.strictmode.SqliteObjectLeakedViolation;
 
 import androidx.annotation.Nullable;
 
@@ -231,119 +232,6 @@ public class DbHandler extends SQLiteOpenHelper {
         sqLiteDatabase.close();
     }
 
-
-
-    ///////////////////////////////////////////////////////////////////////////////////
-    //////////////////Boarding//////////////////
-
-    public void getDetailsBoarding(Boarding boarding) {
-
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(ownerName, boarding.getOwnerName());
-        contentValues.put(phone, boarding.getPhone());
-        contentValues.put(price, boarding.getPrice());
-        contentValues.put(location, boarding.getLocation());
-        contentValues.put(address, boarding.getAddress());
-        contentValues.put(email, boarding.getEmail());
-        contentValues.put(details, boarding.getDetails2());
-
-        //save to table
-        sqLiteDatabase.insert(table_name, null, contentValues);
-        sqLiteDatabase.close();
-    }
-
-    public List<Boarding> displayDetailsB() {
-        List<Boarding> boardings = new ArrayList();
-        SQLiteDatabase database = getReadableDatabase();
-        String query = "SELECT * FROM " + table_name;
-
-        Cursor cursor = database.rawQuery(query, null);
-
-        if (cursor.moveToFirst()) {
-            do {
-                Boarding boarding = new Boarding();
-                boarding.setLocation(cursor.getString(4));
-                boarding.setPrice(cursor.getString(3));
-                boarding.setDetails2(cursor.getString(5));
-                boarding.setOwnerName(cursor.getString(1));
-                boarding.setAddress(cursor.getString(6));
-                boarding.setEmail(cursor.getString(7));
-                boarding.setPhone(cursor.getString(2));
-
-                boardings.add(boarding);
-            } while (cursor.moveToNext());
-        }
-        return boardings;
-    }
-
-    public void deleteBoarding(int i) {
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-
-        sqLiteDatabase.delete(table_name, id +" =?",
-                new String[]{String.valueOf(i)});
-        sqLiteDatabase.close();
-    }
-
-
-    public Boarding getSingleBoarding(int i) {
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-
-        Cursor cursor = sqLiteDatabase.query(table_name, new String[]{id, ownerName, phone, price, location, details, address, email},
-                "id =?",
-                new String[]{String.valueOf(i)},
-                null,
-                null,
-                null);
-
-        Boarding boarding;
-        if (cursor != null) {
-            cursor.moveToFirst();
-            boarding = new Boarding(
-                    cursor.getInt(0),
-                    cursor.getString(1),
-                    cursor.getString(2),
-                    cursor.getString(3),
-                    cursor.getString(4),
-                    cursor.getString(5),
-                    cursor.getString(6),
-                    cursor.getString(7)
-
-            );
-            return boarding;
-
-        }
-        return null;
-
-
-    }
-
-    public int updateBoarding(Boarding boarding){
-
-        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(ownerName, boarding.getOwnerName());
-        contentValues.put(phone, boarding.getPhone());
-        contentValues.put(price, boarding.getPrice());
-        contentValues.put(location, boarding.getLocation());
-        contentValues.put(address, boarding.getAddress());
-        contentValues.put(email, boarding.getEmail());
-        contentValues.put(details, boarding.getDetails2());
-
-        int  status = sqLiteDatabase.update(table_name,contentValues,id +" =?",
-                new String[]{String.valueOf(boarding.getId())});
-
-        sqLiteDatabase.close();
-        return status;
-
-    }
-
-
-
     public Hostal getSingaleHostal(int id){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
 
@@ -355,24 +243,25 @@ public class DbHandler extends SQLiteOpenHelper {
 
         if (cursor != null){
             cursor.moveToFirst();
-           hostal = new Hostal(
-                   cursor.getInt(0),
-                   cursor.getString(1),
-                   cursor.getString(2),
-                   cursor.getString(3),
-                   cursor.getString(4),
-                   cursor.getString(5),
-                   cursor.getString(6),
-                   cursor.getString(7),
-                   cursor.getLong(8),
-                   cursor.getLong(9)
-           );
-           return hostal;
+            hostal = new Hostal(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getString(7),
+                    cursor.getLong(8),
+                    cursor.getLong(9)
+            );
+            return hostal;
 
         }
         return null;
 
     }
+
 
     public int updateHostal(Hostal hostal){
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
@@ -397,6 +286,120 @@ public class DbHandler extends SQLiteOpenHelper {
 
         return status;
     }
+
+
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    //////////////////Boarding//////////////////
+
+    ///Insert Details - Boarding///
+    public void getDetailsBoarding(Boarding boarding) {
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(ownerName, boarding.getOwnerName());
+        contentValues.put(phone, boarding.getPhone());
+        contentValues.put(price, boarding.getPrice());
+        contentValues.put(location, boarding.getLocation());
+        contentValues.put(address, boarding.getAddress());
+        contentValues.put(email, boarding.getEmail());
+        contentValues.put(details, boarding.getDetails2());
+
+        //save to table
+        sqLiteDatabase.insert(table_name, null, contentValues);
+        sqLiteDatabase.close();
+    }
+
+    ///Display details - read///
+    public List<Boarding> displayDetailsB() {
+        List<Boarding> boardings = new ArrayList();
+        SQLiteDatabase database = getReadableDatabase();
+        String query = "SELECT * FROM " + table_name;
+
+        Cursor cursor = database.rawQuery(query, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                Boarding boarding = new Boarding();
+                boarding.setId(cursor.getInt(0));
+                boarding.setOwnerName(cursor.getString(1));
+                boarding.setPhone(cursor.getString(2));
+                boarding.setPrice(cursor.getString(3));
+                boarding.setLocation(cursor.getString(4));
+                boarding.setDetails2(cursor.getString(5));
+                boarding.setAddress(cursor.getString(6));
+                boarding.setEmail(cursor.getString(7));
+
+                boardings.add(boarding);
+            } while (cursor.moveToNext());
+        }
+        return boardings;
+    }
+
+    ///Delete details///
+    public void deleteBoarding(int key) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        sqLiteDatabase.delete(table_name, "id =?",
+                new String[]{String.valueOf(key)});
+        sqLiteDatabase.close();
+    }
+
+
+
+    public Boarding getSingleBoarding(int Id){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        Cursor cursor = sqLiteDatabase.query(table_name,
+                new String[]{id,ownerName,phone,price,location,details,address,email},
+                id + "= ?",
+                new String[]{String.valueOf(Id)},null,null,null);
+
+        Boarding boarding;
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+
+            boarding = new Boarding(
+                    cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getString(4),
+                    cursor.getString(5),
+                    cursor.getString(6),
+                    cursor.getString(7)
+            );
+            return boarding;
+        }
+        return null;
+
+    }
+
+    ///update details///
+    public int updateBoarding(Boarding boarding){
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(ownerName, boarding.getOwnerName());
+        contentValues.put(phone, boarding.getPhone());
+        contentValues.put(price, boarding.getPrice());
+        contentValues.put(location, boarding.getLocation());
+        contentValues.put(address, boarding.getAddress());
+        contentValues.put(email, boarding.getEmail());
+        contentValues.put(details, boarding.getDetails2());
+        int status = sqLiteDatabase.update(table_name,contentValues,
+                id +" =?",
+                new String[]{String.valueOf(boarding.getId())});
+        sqLiteDatabase.close();
+        return status;
+    }
+
 
 
 

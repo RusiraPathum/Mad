@@ -67,8 +67,6 @@
 
         <activity android:name=".BoardingHome" />
 
-        <activity android:name=".updateB" />
-
         <activity android:name=".getDetails" />
 
         <activity android:name=".Hostal_listviewActivity" />
